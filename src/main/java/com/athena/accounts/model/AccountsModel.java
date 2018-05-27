@@ -20,7 +20,10 @@ public class AccountsModel {
     @Column(name = "holder")
     private String holder;
 
-    @Column(name = "bank_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bank_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private int bankId;
 
     @Column(name = "initial_balance")
