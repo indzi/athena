@@ -24,7 +24,7 @@ public class AccountsModel {
     @JoinColumn(name = "bank_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private int bankId;
+    private Bank bank;
 
     @Column(name = "initial_balance")
     private String initialBalance;
