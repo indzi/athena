@@ -1,5 +1,8 @@
 package com.athena.accounts.model;
 
+import com.athena.banks.model.BanksModel;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
@@ -23,8 +26,7 @@ public class AccountsModel {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Bank bank;
+    private BanksModel bank;
 
     @Column(name = "initial_balance")
     private String initialBalance;
@@ -67,14 +69,6 @@ public class AccountsModel {
         this.holder = holder;
     }
 
-    public int getBankId() {
-        return bankId;
-    }
-
-    public void setBankId(int bankId) {
-        this.bankId = bankId;
-    }
-
     public String getInitialBalance() {
         return initialBalance;
     }
@@ -91,11 +85,11 @@ public class AccountsModel {
         this.currentBalance = currentBalance;
     }
 
-    public String getAccType() {
-        return accType;
+    public BanksModel getBank() {
+        return bank;
     }
 
-    public void setAccType(String accType) {
-        this.accType = accType;
+    public void setBank(BanksModel bank) {
+        this.bank = bank;
     }
 }
