@@ -3,6 +3,7 @@ package com.athena.banks.dao;
 import com.athena.banks.model.BanksModel;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
